@@ -455,7 +455,7 @@ async def help_msg(c: Client, m: Message):
         text="""
 Send /settings command to change the settings to 'Video + Video merge' or 'Video + Audio merge' or ' Video + Subtitle merge' or "Video or Subtitle extract",
 To merge the file send the video file first then you can figure it out yourself..
-To extract audio or subtitle, first change settings to extract then reply with /extract command to the file you want to extract from.
+To extract audio or subtitle, first change settings to extract then reply with /extract command to the file you want to extract from.""",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Close 🔐", callback_data="close")]]
