@@ -204,7 +204,7 @@ async def start_handler(c: Client, m: Message):
         user.allowed = True
         user.set()
     res = await m.reply_text(
-        text=f"Hey! **{m.from_user.first_name}**\n\n ⚡ I can help you merge multiple telegram videos.\n\nSend a video file to start\n\n**Channel: @Neko_Bots** ",
+        text=f"Hey! **{m.from_user.first_name}**\n\n ⚡ I can murge \n - multiple videos\n - Video & audio \n - Video & Subtile\n\n If you're unsure how to use me, just send /help for guidance.\n\n**Channel: @Neko_Bots** ",
         quote=True,
     )
     del user
