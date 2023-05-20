@@ -9,7 +9,7 @@ class Config(object):
     OWNER = 1443454117
     OWNER_USERNAME = "Pirate_User"
     PASSWORD = "Sub"
-    DATABASE_URL = "mongodb+srv://waifu:720phevc@cluster0.jzru46m.mongodb.net/?retryWrites=true&w=majority"
+    DATABASE_URL = "mongodb+srv://erai:raws@cluster1.zefvxlt.mongodb.net/?retryWrites=true&w=majority"
     LOGCHANNEL = -1001557165553  # Add channel id as -100 + Actual ID
     GDRIVE_FOLDER_ID = ""
     USER_SESSION_STRING = None
