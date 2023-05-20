@@ -204,7 +204,7 @@ async def start_handler(c: Client, m: Message):
         user.allowed = True
         user.set()
     res = await m.reply_text(
-        text=f"Hey! **{m.from_user.first_name}**\n\n ⚡ I can murge \n - multiple videos\n - Video & audio \n - Video & Subtile\n\n If you're unsure how to use me, just send /help for guidance.\n\n**Channel: @Neko_Bots** ",
+        text=f"Hey! **{m.from_user.first_name}**\n\n ⚡ I can merge \n - multiple videos\n - Video & audio \n - Video & Subtitle\n\n If you're unsure how to use me, just send /help for guidance.\n\n**Channel: @Neko_Bots** ",
         quote=True,
     )
     del user
@@ -453,8 +453,8 @@ async def media_extracter(c: Client, m: Message):
 async def help_msg(c: Client, m: Message):
     await m.reply_text(
         text="""
-Send /settings command to change the settings to 'Video + Video merge' or 'Video + Audio merge' or ' Video + Subtitle merge' or "Video or Subtitle extract",
-To merge the file send the video file first then you can figure it out yourself..
+Send /settings command to change the settings to 'Video + Video merge' or 'Video + Audio merge' or ' Video + Subtitle merge' or "Video or Subtitle extract"\n\n
+To merge the file send the video file first then you can figure it out yourself.\n
 To extract audio or subtitle, first change settings to extract then reply with /extract command to the file you want to extract from.""",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
