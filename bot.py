@@ -196,7 +196,7 @@ async def start_handler(c: Client, m: Message):
     if m.from_user.id != int(Config.OWNER):
         if user.allowed is False:
             res = await m.reply_text(
-                text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n**Contact: 🈲 @{Config.OWNER_USERNAME}** ",
+                text=f"Hi **{m.from_user.first_name}**\n\n Unfortunately you can't use me\n\n**Contact: @Neko_Bots** ",
                 quote=True,
             )
             return
@@ -204,7 +204,7 @@ async def start_handler(c: Client, m: Message):
         user.allowed = True
         user.set()
     res = await m.reply_text(
-        text=f"Hi **{m.from_user.first_name}**\n\n ⚡ I am a file/video merger bot\n\n😎 I can merge Telegram files!, And upload it to telegram\n\n**Owner: 🈲 @{Config.OWNER_USERNAME}** ",
+        text=f"Hey! **{m.from_user.first_name}**\n\n ⚡ I can help you merge multiple telegram videos.\n\nSend a video file to start\n\n**Channel: @Neko_Bots** ",
         quote=True,
     )
     del user
@@ -227,7 +227,7 @@ async def files_handler(c: Client, m: Message):
         return
     input_ = f"downloads/{str(user_id)}/input.txt"
     if os.path.exists(input_):
-        await m.reply_text("Sorry Bro,\nAlready One process in Progress!\nDon't Spam.")
+        await m.reply_text("PLease have patience!,\nAlready one process is in Progress!\nDon't Spam.")
         return
     media = m.video or m.document or m.audio
     if media.file_name is None:
@@ -452,13 +452,10 @@ async def media_extracter(c: Client, m: Message):
 @mergeApp.on_message(filters.command(["help"]) & filters.private)
 async def help_msg(c: Client, m: Message):
     await m.reply_text(
-        text="""**Follow These Steps:
-
-1) Send me the custom thumbnail (optional).
-2) Send two or more Your Videos Which you want to merge
-3) After sending all files select merge options
-4) Select the upload mode.
-5) Select rename if you want to give custom file name else press default**""",
+        text="""
+Send /settings command to change the settings to 'Video + Video merge' or 'Video + Audio merge' or ' Video + Subtitle merge' or "Video or Subtitle extract",
+To merge the file send the video file first then you can figure it out yourself..
+To extract audio or subtitle, first change settings to extract then reply with /extract command to the file you want to extract from.
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Close 🔐", callback_data="close")]]
@@ -466,24 +463,18 @@ async def help_msg(c: Client, m: Message):
     )
 
 
-@mergeApp.on_message(filters.command(["about"]) & filters.private)
+@mergeApp.on_message(filters.command(["feature"]) & filters.private)
 async def about_handler(c: Client, m: Message):
     await m.reply_text(
         text="""
-**ᴡʜᴀᴛ's ɴᴇᴡ:**
-👨‍💻 ʙᴀɴ/ᴜɴʙᴀɴ ᴜsᴇʀs
-👨‍💻 ᴇxᴛʀᴀᴄᴛ ᴀʟʟ ᴀᴜᴅɪᴏs ᴀɴᴅ sᴜʙᴛɪᴛʟᴇs ғʀᴏᴍ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ
-👨‍💻 ᴍᴇʀɢᴇ ᴠɪᴅᴇᴏ + ᴀᴜᴅɪᴏ 
-👨‍💻 ᴍᴇʀɢᴇ ᴠɪᴅᴇᴏ + sᴜʙᴛɪᴛʟᴇs
-👨‍💻 ᴜᴘʟᴏᴀᴅ ᴛᴏ ᴅʀɪᴠᴇ ᴜsɪɴɢ ʏᴏᴜʀ ᴏᴡɴ ʀᴄʟᴏɴᴇ ᴄᴏɴғɪɢ
-👨‍💻 ᴍᴇʀɢᴇᴅ ᴠɪᴅᴇᴏ ᴘʀᴇsᴇʀᴠᴇs ᴀʟʟ sᴛʀᴇᴀᴍs ᴏғ ᴛʜᴇ ғɪʀsᴛ ᴠɪᴅᴇᴏ ʏᴏᴜ sᴇɴᴅ (ɪ.ᴇ ᴀʟʟ ᴀᴜᴅɪᴏᴛʀᴀᴄᴋs/sᴜʙᴛɪᴛʟᴇs)
-➖➖➖➖➖➖➖➖➖➖➖➖➖
-**ғᴇᴀᴛᴜʀᴇs**
-🔰 ᴍᴇʀɢᴇ ᴜᴘᴛᴏ 𝟷𝟶 ᴠɪᴅᴇᴏ ɪɴ ᴏɴᴇ 
-🔰 ᴜᴘʟᴏᴀᴅ ᴀs ᴅᴏᴄᴜᴍᴇɴᴛs/ᴠɪᴅᴇᴏ
-🔰 ᴄᴜsᴛᴏᴍs ᴛʜᴜᴍʙɴᴀɪʟ sᴜᴘᴘᴏʀᴛ
-🔰 ᴜsᴇʀs ᴄᴀɴ ʟᴏɢɪɴ ᴛᴏ ʙᴏᴛ ᴜsɪɴɢ ᴘᴀssᴡᴏʀᴅ
-🔰 ᴏᴡɴᴇʀ ᴄᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴀʟʟ ᴜsᴇʀs
+**Features**
+- Merge upto 10 video in a single file. 
+- Upload as document or video.
+- Custom thumbnail support.
+- Ban / Unban users.
+- Merge Video and Audio
+- Merge Video and Subtitle
+- Merged video preserves all the streams (audio tracks or subtitle tracks) present in it.
 		""",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
