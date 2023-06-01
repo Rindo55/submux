@@ -636,10 +636,10 @@ async def delete_all(root):
 
 async def makeButtons(bot: Client, m: Message, db: dict):
     markup = []
-    user = UserSettings(m.chat.id, m.chat.first_name)
+    user = UserSettings(m.from_user.id, m.from_user.first_name)
     if user.merge_mode == 1:
         for i in await bot.get_messages(
-            chat_id=m.chat.id, message_ids=db.get(m.chat.id)["videos"]
+            chat_id=m.from_user.id, message_ids=db.get(m.from_user.id)["videos"]
         ):
             media = i.video or i.document or None
             if media is None:
