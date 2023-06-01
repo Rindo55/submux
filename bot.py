@@ -85,7 +85,7 @@ async def sendLogFile(c: Client, m: Message):
     return
 
 
-@mergeApp.on_message(filters.command(["login"]) & filters.private)
+@mergeApp.on_message(filters.command(["login"]))
 async def loginHandler(c: Client, m: Message):
     user = UserSettings(m.from_user.id, m.from_user.first_name)
     if user.banned:
@@ -116,7 +116,7 @@ async def loginHandler(c: Client, m: Message):
     return
 
 
-@mergeApp.on_message(filters.command(["stats"]) & filters.private)
+@mergeApp.on_message(filters.command(["stats"]))
 async def stats_handler(c: Client, m: Message):
     currentTime = get_readable_time(time.time() - botStartTime)
     total, used, free = shutil.disk_usage(".")
@@ -211,7 +211,7 @@ async def start_handler(c: Client, m: Message):
 
 
 @mergeApp.on_message(
-    (filters.document | filters.video | filters.audio) & filters.private
+    (filters.document | filters.video | filters.audio)
 )
 async def files_handler(c: Client, m: Message):
     user_id = m.from_user.id
